@@ -1,1 +1,5 @@
-# js-p2
+Calculator Project for Brainnest Frontend Program
+
+link:
+
+to-do:

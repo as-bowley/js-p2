@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+
+body {
+  background-color: #ee6352;
+  margin: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  width: 434px;
+  height: 640px;
+  margin: auto;
+  border-radius: 5%;
+  background-color: #231f20;
+  box-shadow: 5px 6px 7px 0px rgb(0 0 0 / 38%);
+}
+
+.display-container {
+  height: 80px;
+  display: grid;
+  border: 2px solid black;
+  width: 90%;
+  margin-top: auto;
+  margin-bottom: 20px;
+  font-family: Monospace, Arial, Helvetica;
+  padding: 5px 15px 5px 5px;
+  text-align: end;
+  font-weight: 500;
+  background-color: #f1f4c6;
+  text-shadow: 2px 2px 2px rgba(59, 50, 50, 0.59);
+  box-shadow: -2px -6px 9px 0px rgba(0, 0, 0, 0.38) inset;
+  border-radius: 5%;
+}
+
+.upper-display {
+  font-size: 22px;
+  color: #776f70;
+  text-shadow: 1px 1px 1px rgba(59, 50, 50, 0.59);
+  height: 40px;
+}
+
+.lower-display {
+  font-size: 40px;
+  height: 40px;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-items: center;
+  width: 400px;
+  padding-bottom: 20px;
+}
+
+.button-container button:active {
+  background-color: #f1f4c6;
+  transform: translateY(2px) translateX(2px);
+}
+
+.button-container button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 2px;
+  padding: 40px;
+  border: none;
+  border-radius: 20%;
+  height: 50px;
+  width: 50px;
+  font-family: "Roboto Mono", monospace;
+  color: rgb(0, 0, 0);
+  background-color: #efe9f4;
+  font-size: 34px;
+  box-shadow: 1px 3px 7px -1px rgb(252 255 205 / 75%);
+  cursor: pointer;
+}
+
+.button-container button:hover {
+  filter: contrast(0.5);
+}
+
+.button-container .clear,
+.button-container .backspace {
+  background-color: #77ba99;
+}
+
+.button-container .operand {
+  background-color: #ffd447;
+  color: black;
+  font-size: 40px;
+}
+
+.button-container .operate {
+  border-radius: 7%;
+  grid-column: span 2;
+  padding: 40px 90px;
+  width: 160px;
+  background-color: #77ba99;
+  color: black;
+  font-size: 40px;
+}
