@@ -1,5 +1,3 @@
 Calculator Project for Brainnest Frontend Program
 
-link:
-
-to-do:
+link: https://as-bowley.github.io/js-p2/
