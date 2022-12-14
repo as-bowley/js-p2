@@ -157,7 +157,6 @@ function handleResult() {
     val1 = 0;
   }
   val1 = result;
-  // numValArr = Array.from(String(val1), Number);
   upperDisplay.textContent = val1;
   val2 = 0;
 }
