@@ -23,6 +23,7 @@ operandButtons.forEach((button) => {
 operateButton.addEventListener("click", () => {
   handleValues();
   operate(operand, val1, val2);
+  upperDisplay.textContent = "";
 });
 clearButton.addEventListener("click", clear, false);
 backspaceButton.addEventListener("click", backspace, false);
@@ -58,7 +59,6 @@ function remainder(num1, num2) {
 }
 
 function operate(string, num1, num2) {
-  console.log(string, num1, num2);
   switch (string) {
     case "+":
       operand = "";
@@ -86,16 +86,16 @@ function operate(string, num1, num2) {
 }
 
 function addNumber(number) {
-  numValArr.push(number);
+  numValArr.push(+number);
   lowDisplay.textContent = numValArr.join("");
-  updateUpperDisplay(number);
 }
 
 function addOperand(clickedOperand) {
   if (lowDisplay.textContent !== 0) {
     if (operand === "") {
       operand = clickedOperand;
-      updateUpperDisplay(operand);
+      handleValues();
+      updateUpperDisplay(`${val1}${operand}`);
     } else {
       handleValues();
       operate(operand, val1, val2);
@@ -110,7 +110,6 @@ function addDecimal() {
   if (!numValArr.includes(".")) {
     numValArr.push(".");
     lowDisplay.textContent = numValArr.join("");
-    upperDisplay.textContent += ".";
   }
 }
 
@@ -129,7 +128,7 @@ function backspace() {
     lowDisplay.textContent = numValArr.join("");
     upperDisplay.textContent = upperDisplay.textContent.slice(0, -1);
   }
-  if (numValArr.length === 0) {
+  if (numValArr.length === 0 && val1 === 0) {
     lowDisplay.textContent = 0;
     upperDisplay.textContent = "";
   }
@@ -150,8 +149,8 @@ function handleResult() {
   if (result === "!nice try") {
     val1 = 0;
   }
-  upperDisplay.textContent = result;
   val1 = result;
+  upperDisplay.textContent = val1;
   result = 0;
   val2 = 0;
 }
@@ -170,7 +169,7 @@ function keyboardInput(event) {
   const { key } = event;
   const operands = ["+", "-", "%"];
 
-  if (key >= 0 && +key <= 9) {
+  if (key >= 0 && key <= 9) {
     addNumber(key);
   } else if (key == ".") {
     addDecimal();
@@ -182,9 +181,12 @@ function keyboardInput(event) {
     addOperand("÷");
   } else if (key == "=" || key == "Enter") {
     handleValues();
-    operate(prevOperand, val1, val2);
+    operate(operand, val1, val2);
+    upperDisplay.textContent = "";
   } else if (key == "Backspace") {
     backspace();
+  } else if (key == "Escape") {
+    clear();
   }
 }
 
