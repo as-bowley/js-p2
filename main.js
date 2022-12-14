@@ -86,8 +86,15 @@ function operate(string, num1, num2) {
 }
 
 function addNumber(number) {
-  numValArr.push(+number);
-  lowDisplay.textContent = numValArr.join("");
+  if (result !== 0) {
+    val1 = 0;
+    result = 0;
+    numValArr.push(+number);
+    lowDisplay.textContent = numValArr.join("");
+  } else {
+    numValArr.push(+number);
+    lowDisplay.textContent = numValArr.join("");
+  }
 }
 
 function addOperand(clickedOperand) {
@@ -150,8 +157,8 @@ function handleResult() {
     val1 = 0;
   }
   val1 = result;
+  // numValArr = Array.from(String(val1), Number);
   upperDisplay.textContent = val1;
-  result = 0;
   val2 = 0;
 }
 
