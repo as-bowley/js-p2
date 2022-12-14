@@ -86,15 +86,8 @@ function operate(string, num1, num2) {
 }
 
 function addNumber(number) {
-  if (result !== 0) {
-    val1 = 0;
-    result = 0;
-    numValArr.push(+number);
-    lowDisplay.textContent = numValArr.join("");
-  } else {
-    numValArr.push(+number);
-    lowDisplay.textContent = numValArr.join("");
-  }
+  numValArr.push(+number);
+  lowDisplay.textContent = numValArr.join("");
 }
 
 function addOperand(clickedOperand) {
@@ -143,7 +136,7 @@ function backspace() {
 
 function setResult(num) {
   if (String(num).includes(".")) {
-    result = parseFloat(num).toFixed(2);
+    result = parseFloat(num).toFixed(4);
     handleResult();
   } else {
     result = num;
